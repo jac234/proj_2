@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+</head>
+<style>
+    body {text-align: center;}
+</style>
+<body>
+<main>
+    <h1> Question Form</h1>
+    <form action="New_Question_Form.php" method="post" class="container">
+        <div id="data">
+            <label>Question Name:<br></label>
+            <input type="text" name="Q_Name"><br><br>
+
+            <label>Question Skills (please seperate w/ commas)<br></label>
+            <input type="text" name="Q_Skills"><br><br>
+
+            <label>Question Body:<br></label>
+            <textarea id="Q_Body" name="Q_Body" rows="4" cols="16"></textarea><br><br>
+
+        </div>
+
+        <div id="buttons">
+            <label> </label>
+            <input type="submit" value="submit">
+        </div>
+    </form>
+</main>
+</body>
+</html>
