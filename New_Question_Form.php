@@ -66,8 +66,6 @@
         // Execute the SQL Query
         $statement->execute();
 
-        // Close the DB connection
-        //$statement->closeCursor();
         echo "Page is being redirected . . .";
         header( "Location: display.php?email=$email" );
     }else{

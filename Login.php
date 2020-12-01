@@ -32,9 +32,7 @@
         // Create PDO statement
 
         $statement = $db->prepare($query);
-        // Bind form values to SQL
-        //$statement->bindValue(':email', $email);
-        //$statement->bindValue(':pass', $pass);
+
 
 
 
@@ -45,8 +43,7 @@
         $count = $statement->rowCount();
 
 
-        // Close the DB connection
-        //$statement->closeCursor();
+
         if ($count == 1){
             header( "Location: display.php?email=$email" );
         }else{
