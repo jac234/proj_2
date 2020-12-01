@@ -20,7 +20,7 @@
         echo "Email Address: $email<br> - should contain '@' symbol.<br><br>";
         $conditions_met = 0;
     }
-    
+
     //Cant be empty & contains at least 3 char
     if (strlen($Q_Name) == 0){
         echo "Question Name: $Q_Name<br> - should not be left empty.<br><br>";
@@ -69,7 +69,7 @@
         // Close the DB connection
         //$statement->closeCursor();
         echo "Page is being redirected . . .";
-        header( "Location: display.php" );
+        header( "Location: display.php?email=$email" );
     }else{
         echo "Page is being redirected . . .";
         header("refresh: 4, url=New_Question_Form.html");

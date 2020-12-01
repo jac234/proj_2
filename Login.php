@@ -1,24 +1,60 @@
 <?php
+    require('pdo.php');
     echo '<h2>Login Results</h2>';
     //the next two lines get the data from the html form
     $email = filter_input(INPUT_POST, 'email');
     $pass  = filter_input(INPUT_POST, 'pass');
 
+    $conditions_met = 1;
+
     //Cant be empty & contains @ character
-    if((strlen($email) > 0) and (strpos($email, "@") != FALSE)){
-        echo "Email Address: $email <br><br>";
-    }elseif (strlen($email) == 0){
+    if (strlen($email) == 0){
         echo "Email Address: $email<br> - should not be left empty.<br><br>";
-    }elseif (strpos($email, "@") != TRUE){
+        $conditions_met = 0;
+    }
+    if (strpos($email, "@") != TRUE){
         echo "Email Address: $email<br> - should contain '@' symbol.<br><br>";
+        $conditions_met = 0;
     }
 
     //Cant be empty & at least 8 character
-    if((strlen($pass) > 0) and (strlen($pass) >= 8)){
-        echo "Password: $pass <br><br>";
-    }elseif ((strlen($pass) == 0)){
+    if ((strlen($pass) == 0)){
         echo "Password: $pass<br> - should not be left empty.<br><br>";
-    }elseif ((strlen($pass) < 8)){
+        $conditions_met = 0;
+    }
+    if ((strlen($pass) < 8)){
         echo "Password: $pass<br> - should be 8 characters or longer.<br><br>";
+        $conditions_met = 0;
+    }
+
+    if ($conditions_met == 1){
+        $query = "SELECT * FROM `accounts` WHERE email = '$email' AND password = '$pass' ";
+        // Create PDO statement
+
+        $statement = $db->prepare($query);
+        // Bind form values to SQL
+        //$statement->bindValue(':email', $email);
+        //$statement->bindValue(':pass', $pass);
+
+
+
+        // Execute the SQL Query
+        $statement->execute();
+
+        // Find out if a matching email and password was found
+        $count = $statement->rowCount();
+
+
+        // Close the DB connection
+        //$statement->closeCursor();
+        if ($count == 1){
+            header( "Location: display.php?email=$email" );
+        }else{
+            echo "LOGIN FAILED<br><br>Page is being redirected . . .";
+            header("refresh: 4, url=Login.html");
+        }
+    }else{
+        echo "Page is being redirected . . .";
+        header("refresh: 4, url=Login.html");
     }
 ?>

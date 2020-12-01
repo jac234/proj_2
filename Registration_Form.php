@@ -67,7 +67,7 @@ if ($conditions_met == 1){
 // Close the DB connection
     //$statement->closeCursor();
     echo "Page is being redirected . . .";
-    header( "Location: display.php?f_Name=$f_Name&l_Name=$l_Name" );
+    header( "Location: display.php?email=$email" );
 }else{
     echo "Page is being redirected . . .";
     header("refresh: 4, url=Registration_Form.html");
