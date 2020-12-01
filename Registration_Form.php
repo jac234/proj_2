@@ -73,3 +73,17 @@ if ($conditions_met == 1){
     header("refresh: 4, url=Registration_Form.html");
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    body {
+        background-image: url('img1.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        text-align: center;
+    }
+</style>
+</html>
+

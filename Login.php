@@ -55,3 +55,17 @@
         header("refresh: 4, url=Login.html");
     }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    body {
+        background-image: url('img1.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        text-align: center;
+    }
+</style>
+</html>
